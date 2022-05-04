@@ -1,0 +1,10 @@
+<div *ngFor="let vaga of vagas$ | async" class="card cartao">
+    <div class="card-body">
+      <h5 class="card-title">{{ vaga.titulo }}</h5>
+      <h6 class="card-subtitle mb-2">Salário : {{ vaga.salario }}</h6>
+      <p class="card-subtitle mb-2">Empresa{{ vaga.empresa.nome }}</p>
+      <p class="card-text">{{ vaga.descricao }}</p>
+
+      <button class="btn btn-danger">Candidatar-se</button>
+    </div>
+</div>
