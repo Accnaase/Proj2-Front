@@ -1,7 +1,10 @@
-<div *ngFor="let emp of empresas$ | async" class="card cartao">
+<div class="container">
+  <div *ngFor="let emp of empresas$ | async" class="card cartao">
     <div class="card-body">
       <h5 class="card-title">{{ emp.nome }}</h5>  
       <button class="btn btn-danger">Ver vagas dessa empresa</button>
-
+      
     </div>
+  </div>
+  <button (click)="nextPage()">Próxima página ---></button>
 </div>

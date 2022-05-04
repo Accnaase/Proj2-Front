@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { catchError, empty, map, Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, empty, map, Observable, Subscription } from 'rxjs';
 import { EmpresasService } from '../empresas.service';
 import { Empresa } from './empresas';
 
@@ -8,14 +9,30 @@ import { Empresa } from './empresas';
   templateUrl: './empresas-lista.component.html',
   styleUrls: ['./empresas-lista.component.css']
 })
-export class EmpresasListaComponent implements OnInit {
+export class EmpresasListaComponent implements OnInit, OnDestroy {
 
   empresas$!: Observable<Empresa[]>;
 
-  constructor(private service: EmpresasService) { }
+  pagina!: number;
+
+  inscription!: Subscription
+
+  constructor(
+    private service: EmpresasService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.listar()
+
+    this.inscription = this.route.queryParams.subscribe(
+      (queryParam: any) => {
+        this.pagina = queryParam['pagina']
+        console.log(this.pagina);
+        
+      }
+    )
   }
 
   listar() {
@@ -26,5 +43,14 @@ export class EmpresasListaComponent implements OnInit {
         return empty()
       })
     )
+  }
+
+  nextPage() {
+    this.router.navigate(['/empresas'], 
+    {queryParams: {'pagina': ++this.pagina}});
+  }
+
+  ngOnDestroy(): void {
+    this.inscription.unsubscribe()
   }
 }

@@ -6,6 +6,7 @@ import { EmpresasListaComponent } from './empresas-lista/empresas-lista.componen
 
 const routes: Routes = [
   { path: '', component: EmpresasListaComponent},
+  // { path: '', component: EmpresasListaComponent},
   { path: 'novo', component: EmpresasFormComponent },
   { path: 'editar', component: EmpresasFormComponent  }
 ];
