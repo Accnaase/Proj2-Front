@@ -28,5 +28,12 @@ export class VagasListaComponent implements OnInit {
     )
   }
 
+  delete(id:number) {
+    this.listar();
+    console.log(id);
+    
+    return this.service.delete(id).subscribe();
+  }
+
 
 }

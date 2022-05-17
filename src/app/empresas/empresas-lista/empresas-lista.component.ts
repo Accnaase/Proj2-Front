@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, empty, map, Observable, Subscription } from 'rxjs';
 import { EmpresasService } from '../empresas.service';
@@ -22,9 +22,9 @@ export class EmpresasListaComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router
   ) { }
-
+  
   ngOnInit(): void {
-    this.listar()
+    this.listar();
 
     this.inscription = this.route.queryParams.subscribe(
       (queryParam: any) => {
@@ -35,6 +35,7 @@ export class EmpresasListaComponent implements OnInit, OnDestroy {
     )
   }
 
+ 
   listar() {
     this.empresas$ = this.service.list().pipe(
       map(result => result.empresas),
@@ -45,9 +46,9 @@ export class EmpresasListaComponent implements OnInit, OnDestroy {
     )
   }
 
-  nextPage() {
-    this.router.navigate(['/empresas'], 
-    {queryParams: {'pagina': ++this.pagina}});
+  delete(id:number) {
+    this.listar();
+    return this.service.delete(id).subscribe();
   }
 
   ngOnDestroy(): void {

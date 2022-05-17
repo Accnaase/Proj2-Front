@@ -1,3 +1,4 @@
 export interface Empresa {
-    nome: string
+    nome: string,
+    id_empresa: number
 }

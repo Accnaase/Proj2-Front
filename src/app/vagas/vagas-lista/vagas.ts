@@ -1,9 +1,10 @@
 export interface Vaga {
+    id_vaga: number
     titulo: string,
     salario: number,
     descricao: string,
     empresa : {
-        id: number,
+        id_empresa: number,
         nome: string
     }
 }

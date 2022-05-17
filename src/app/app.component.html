@@ -6,7 +6,7 @@
           <a class="nav-link"  [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/empresas']" [queryParams]="{pagina:1}" routerLinkActive="router-link-active" >Empresas</a>
+          <a class="nav-link" [routerLink]="['/empresas']" routerLinkActive="router-link-active" >Empresas</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" [routerLink]="['/vagas']" routerLinkActive="router-link-active" >Vagas</a>
@@ -16,6 +16,6 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container mt-4">
   <router-outlet></router-outlet>
 </div>

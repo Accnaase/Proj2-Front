@@ -9,7 +9,7 @@ import { Vaga } from './vagas-lista/vagas';
 })
 export class VagasService extends CrudService<Vaga[]>{
 
-  private readonly API = 'http://localhost:3025/'
+  private readonly API = 'http://localhost:3026/'
 
   constructor(protected override http:HttpClient) {
     super(http, `${environment.API}vagas`);

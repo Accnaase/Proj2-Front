@@ -1,1 +1,12 @@
-<p>empresas-lista-vagas works!</p>
+<div *ngFor="let emp_vaga of empresa_vagas$ | async" class="card cartao">
+    <div class="card-body">
+      <h5 class="card-title">{{ emp_vaga.titulo }}</h5>
+      <h6 class="card-subtitle mb-2">Salário : {{ emp_vaga.salario }}</h6>
+      <p class="card-subtitle mb-1">Empresa{{ emp_vaga.empresa.nome }}</p>
+      <p class="text-truncate">{{ emp_vaga.descricao }}</p>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-dark" type="button">Ver vaga</button>
+      </div>
+    </div>
+</div>

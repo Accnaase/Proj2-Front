@@ -4,8 +4,7 @@ import { EmpresasListaComponent } from './empresas-lista/empresas-lista.componen
 import { EmpresasFormComponent } from './empresas-form/empresas-form.component';
 import { EmpresasRoutingModule } from './empresas-routing-module';
 import { EmpresasListaVagasComponent } from './empresas-lista-vagas/empresas-lista-vagas.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,9 @@ import { EmpresasListaVagasComponent } from './empresas-lista-vagas/empresas-lis
   ],
   imports: [
     CommonModule,
-    EmpresasRoutingModule
+    EmpresasRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     EmpresasFormComponent,

@@ -15,7 +15,14 @@ export class CrudService<T>{
       tap(console.log)
     )
   }
-
+  
+  listVagasEmpresa(id:number) {
+    return this.http.get<T[]>(`${this.API_URL}/${id}`)
+    .pipe(
+      delay(500),
+      tap(console.log)
+    )
+  }
   private create(registro: T) {
     return this.http.post(this.API_URL, registro)
     .pipe(
@@ -33,10 +40,6 @@ export class CrudService<T>{
   }
 
   save(registro: T) {
-    if(registro['id' as keyof T]) {
-      return this.update(registro)
-    }
-
     return this.create(registro)
   }
 

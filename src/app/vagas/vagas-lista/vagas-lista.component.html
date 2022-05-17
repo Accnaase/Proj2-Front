@@ -1,10 +1,15 @@
-<div *ngFor="let vaga of vagas$ | async" class="card cartao">
+<div>
+  <button class="btn btn-dark botao" [routerLink]="['/vagas/novo']" >Adicioar Vaga</button>
+  <div *ngFor="let vaga of vagas$ | async" class="card cartao">
     <div class="card-body">
       <h5 class="card-title">{{ vaga.titulo }}</h5>
       <h6 class="card-subtitle mb-2">Salário : {{ vaga.salario }}</h6>
-      <p class="card-subtitle mb-2">Empresa{{ vaga.empresa.nome }}</p>
-      <p class="card-text">{{ vaga.descricao }}</p>
-
-      <button class="btn btn-danger">Candidatar-se</button>
+      <p class="card-subtitle mb-1">Empresa{{ vaga.empresa.nome }}</p>
+      <p class="text-truncate">{{ vaga.descricao }}</p>
+      
+      <div class="d-grid gap-2">
+        <button class="btn btn-dark" (click)="delete(vaga.id_vaga)">Deletar Vaga</button>    
+      </div>
     </div>
+  </div>
 </div>

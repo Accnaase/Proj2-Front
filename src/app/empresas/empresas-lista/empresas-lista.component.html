@@ -1,10 +1,13 @@
-<div class="container">
+<div>
+  <button class="btn btn-danger botao" [routerLink]="['/empresas/novo']" >Adicioar empresa</button>
   <div *ngFor="let emp of empresas$ | async" class="card cartao">
     <div class="card-body">
-      <h5 class="card-title">{{ emp.nome }}</h5>  
-      <button class="btn btn-danger">Ver vagas dessa empresa</button>
+      <h5 class="card-title titulo">{{ emp.nome }}</h5>  
+      <h6 class="card-subtitle mb-2">Localização:</h6>
+      <p class="card-subtitle mb-1">Quantidade de vagas:  </p>
       
+      <!-- <button class="btn btn-danger" [routerLink]="['/vagas/', emp.id]" routerLinkActive="router-link-active" >Ver vagas dessa empresa</button> -->
+      <button class="btn btn-danger" (click)="delete(emp.id_empresa)">Deletar Empresa</button>    
     </div>
   </div>
-  <button (click)="nextPage()">Próxima página ---></button>
 </div>
